@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:flutter_cubit/model/data_model.dart';
+// import 'package:flutter_cubit/model/data_model.dart';
 
 abstract class CubitClass extends Equatable{}
 
@@ -25,6 +25,24 @@ class LoadingState extends CubitClass{
 }
 
 class LoadedState extends CubitClass{
+  // LoadedState(this.placees);
+  // final List<DataModel> placees;
+  @override
+  // TODO: implement props
+  List<Object> get props => [];
+  
+}
+
+class DetailState extends CubitClass{
+  // LoadedState(this.placees);
+  // final List<DataModel> placees;
+  @override
+  // TODO: implement props
+  List<Object> get props => [];
+  
+}
+
+class ExitState extends CubitClass{
   // LoadedState(this.placees);
   // final List<DataModel> placees;
   @override

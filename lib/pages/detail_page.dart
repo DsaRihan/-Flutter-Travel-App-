@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_cubit/cubit/app_cubit.dart';
 import 'package:flutter_cubit/misc/colors.dart';
 import 'package:flutter_cubit/widgets/apptext.dart';
 import 'package:flutter_cubit/widgets/buttonres.dart';
@@ -37,7 +39,9 @@ class _DetailPageState extends State<DetailPage> {
               top:30,
               child: Row(
               children: [
-                IconButton(onPressed: (){}, icon: Icon(Icons.menu),
+                IconButton(onPressed: (){
+                  BlocProvider.of<AppCubit>(context).goHome();
+                }, icon: Icon(Icons.menu),
                 color: Colors.white,), 
               ],
             )),

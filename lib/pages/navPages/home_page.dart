@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_cubit/cubit/app_cubit.dart';
 import 'package:flutter_cubit/misc/colors.dart';
+import 'package:flutter_cubit/pages/detail_page.dart';
 import 'package:flutter_cubit/widgets/apptext.dart';
 import 'package:flutter_cubit/widgets/largeText.dart';
 
@@ -29,7 +32,11 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
             child:Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children:[
-                Icon(Icons.menu, size: 30, color: Colors.black54),
+                GestureDetector(
+                  onTap: (){
+                    BlocProvider.of<AppCubit>(context).exitPage();
+                  },
+                  child: Icon(Icons.menu, size: 30, color: Colors.black54)),
                 Container(
                   margin: const EdgeInsets.only(right: 10),
                   width: 50,
@@ -76,18 +83,24 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
                 scrollDirection: Axis.horizontal,
                 itemCount: 3,
                  itemBuilder: (BuildContext context, int index) { 
-                  return Container(
-                    margin: const EdgeInsets.only(right: 10),
-                      width: 200,
-                      height: 300,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: Colors.white,
-                        image:const DecorationImage(image: AssetImage("img/mountain.jpeg"),
-                        fit: BoxFit.cover
-                        )
+                  return GestureDetector(
+                      onTap: (){
+                        // BlocProvider.of<AppCubit>(context).getData();
+                        BlocProvider.of<AppCubit>(context).detailPage();
+                      },
+                    child: Container(
+                      margin: const EdgeInsets.only(right: 10),
+                        width: 200,
+                        height: 300,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(20),
+                          color: Colors.white,
+                          image:const DecorationImage(image: AssetImage("img/mountain.jpeg"),
+                          fit: BoxFit.cover
+                          )
+                        ),
                       ),
-                    );
+                  );
                   },
                ),
               Text("here"),
@@ -117,17 +130,23 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
                 margin: const EdgeInsets.only(right: 30),
                 child: Column(
                   children: [
-                    Container(
-                      // margin: const EdgeInsets.only(right: 30),
-                        width: 80,
-                        height: 80,
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20),
-                          color: Colors.white,
-                          image:DecorationImage(image: AssetImage("img/"+images.keys.elementAt(index)),
-                          fit: BoxFit.cover
-                          )
-                        ),
+                    GestureDetector(
+                      onTap: (){
+                        // BlocProvider.of<AppCubit>(context).getData();
+                        BlocProvider.of<AppCubit>(context).detailPage();
+                      },
+                      child: Container(
+                        // margin: const EdgeInsets.only(right: 30),
+                          width: 80,
+                          height: 80,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            color: Colors.white,
+                            image:DecorationImage(image: AssetImage("img/"+images.keys.elementAt(index)),
+                            fit: BoxFit.cover
+                            )
+                          ),
+                      ),
                     ),
                     Container(
                       child: Apptext(text: images.values.elementAt(index).toString(),color: AppColors.textColor2),

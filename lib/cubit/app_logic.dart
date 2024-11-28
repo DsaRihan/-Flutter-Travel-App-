@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_cubit/cubit/app_cubit.dart';
 import 'package:flutter_cubit/cubit/app_cubit_states.dart';
 import 'package:flutter_cubit/pages/Welcome_page.dart';
+import 'package:flutter_cubit/pages/detail_page.dart';
 import 'package:flutter_cubit/pages/navPages/home_page.dart';
 
 class AppcubitLogicState extends StatefulWidget {
@@ -26,6 +27,12 @@ class __AppcubitLogicStateState extends State<AppcubitLogicState> {
         }
         if(state is LoadedState){
           return const HomePage();
+        }
+        if(state is DetailState){
+          return const DetailPage();
+        }
+        if(state is ExitState){
+          return const WelcomePage();
         }
         else
         {

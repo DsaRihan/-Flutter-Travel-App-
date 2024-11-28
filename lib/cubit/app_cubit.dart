@@ -20,4 +20,15 @@ class AppCubit extends Cubit<CubitClass> {
       print(e);
     }
   }
+  detailPage(){
+    emit(DetailState());
+  }
+
+  goHome(){
+    emit(LoadedState());
+  }
+
+  exitPage(){
+    emit(ExitState());
+  }
 }
