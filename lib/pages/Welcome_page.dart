@@ -59,7 +59,11 @@ class _nameState extends State<WelcomePage> {
                           BlocProvider.of<AppCubit>(context).getData();
                         },
                         child: Container(
-                          child: Buttonresp()),),
+                          child: Row(
+                            children: [
+                              Buttonresp(),
+                            ],
+                          )),),
                     ],
                   )
                   ,
