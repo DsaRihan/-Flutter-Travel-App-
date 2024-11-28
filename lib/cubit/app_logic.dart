@@ -19,6 +19,9 @@ class __AppcubitLogicStateState extends State<AppcubitLogicState> {
       (builder: (context,state){
         if(state is WelcomeState){
           return const WelcomePage();
+        }
+        if(state is LoadingState){
+          return const Center(child: CircularProgressIndicator());
         }else
         {
           return Container();

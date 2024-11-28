@@ -15,3 +15,17 @@ class WelcomeState extends CubitClass{
   List<Object> get props => [];
   
 }
+
+class LoadingState extends CubitClass{
+  @override
+  // TODO: implement props
+  List<Object> get props => [];
+  
+}
+
+class LoadedState extends CubitClass{
+  @override
+  // TODO: implement props
+  List<Object> get props => [];
+  
+}

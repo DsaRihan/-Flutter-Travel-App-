@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_cubit/cubit/app_cubit.dart';
 // import 'package:flutter_cubit/cubit/app_cubit_states.dart';
 import 'package:flutter_cubit/cubit/app_logic.dart';
+import 'package:flutter_cubit/services/http.dart';
 // import 'package:flutter_cubit/pages/detail_page.dart';
 // import 'package:flutter_cubit/pages/navPages/mainPage.dart';
 // import './pages/Welcome_page.dart';
@@ -30,7 +31,9 @@ class MyApp extends StatelessWidget {
           )
         ),
         home:BlocProvider<AppCubit>(
-          create: (context) => AppCubit(),
+          create: (context) => AppCubit(
+            data: Dataservice(),
+          ),
           child:const AppcubitLogicState(),)
       );
   }

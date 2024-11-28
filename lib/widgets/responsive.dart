@@ -11,8 +11,7 @@ class Buttonresp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Flexible(
-      child: Container(
+    return  Container(
         width: isresponsive==true?double.maxFinite:width,
         height: 60,
         decoration: BoxDecoration(
@@ -30,7 +29,7 @@ class Buttonresp extends StatelessWidget {
             Image.asset("img/button-one.png")
           ],
         ),
-      ),
-    );
+      );
+    
   }
 }
