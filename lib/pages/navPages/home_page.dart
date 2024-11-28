@@ -11,6 +11,12 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
+  var images={
+    "balloning.png":"Balloning",
+    "hiking.png":"Hiking",
+    "kayaking.png":"Kayaking",
+    "snorkling.png":"snorkling",
+  };
   @override
   Widget build(BuildContext context) {
     TabController _tabcontroller = TabController(length: 3, vsync: this);
@@ -118,13 +124,13 @@ class _HomePageState extends State<HomePage> with TickerProviderStateMixin{
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           color: Colors.white,
-                          image:const DecorationImage(image: AssetImage("img/mountain.jpeg"),
+                          image:DecorationImage(image: AssetImage("img/"+images.keys.elementAt(index)),
                           fit: BoxFit.cover
                           )
                         ),
                     ),
                     Container(
-                      child: Apptext(text: "king",color: AppColors.textColor2),
+                      child: Apptext(text: images.values.elementAt(index).toString(),color: AppColors.textColor2),
                     ),
                   ],
                 ),
