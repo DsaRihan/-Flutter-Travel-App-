@@ -9,13 +9,15 @@ class AppCubit extends Cubit<CubitClass> {
 
   final Dataservice data;
   late final placees;
-  void getData(){
+  void getData() async{
     try{
       emit(LoadingState());
-
+      // placees = await data.getInfo();
+      emit(LoadedState());
+      print(placees);
     }
     catch(e){
-
+      print(e);
     }
   }
 }
